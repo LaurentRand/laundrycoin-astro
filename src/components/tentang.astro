@@ -1,0 +1,36 @@
+---
+import Icon from "./icon.astro";
+
+const highlights = [
+  { icon: "washer", title: "Mesin Modern", desc: "Performa terbaik, hasil maksimal." },
+  { icon: "clock", title: "Proses Cepat", desc: "Lebih hemat waktu, tinggal tunggu." },
+  { icon: "sparkles", title: "Bersih Maksimal", desc: "Hasil cucian wangi, bersih sempurna." },
+  { icon: "user", title: "Self Service", desc: "Mudah, praktis, dan mandiri." },
+] as const;
+---
+
+<section class="bg-navy-950 py-20">
+  <div class="mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 px-6 lg:grid-cols-2 lg:px-10">
+    <div>
+      <h2 class="font-display text-3xl font-extrabold leading-tight text-cyan-400 sm:text-4xl">Cepat, Mandiri, dan Bersih Sempurna</h2>
+      <p class="mt-5 text-sm leading-relaxed text-slate-300 sm:text-base">
+        <span class="font-semibold text-cyan-300">CoinWash+</span> adalah layanan laundry koin modern yang menghadirkan solusi cuci mandiri dengan standar kebersihan maksimal dan hasil optimal. Menggunakan mesin modern, proses cepat, dan konsep
+        self-service praktis untuk memberikan pengalaman terbaik untuk Anda.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-2 gap-8 sm:grid-cols-4 lg:gap-6">
+      {
+        highlights.map((h) => (
+          <div class="flex flex-col items-center text-center">
+            <div class="mb-3 flex h-14 w-14 items-center justify-center rounded-full border border-cyan-400/50 text-cyan-400">
+              <Icon name={h.icon} class="h-6 w-6" />
+            </div>
+            <h3 class="font-display text-sm font-bold text-cyan-300">{h.title}</h3>
+            <p class="mt-1 text-xs text-slate-400">{h.desc}</p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

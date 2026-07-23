@@ -1,0 +1,39 @@
+---
+import Icon from "./icon.astro";
+import Bg1 from "../assets/bg1.jpg";
+---
+
+<section class="relative w-full min-h-dvh overflow-hidden flex items-center">
+  <img src={Bg1.src} alt="background" class="absolute inset-0 w-full h-full object-cover object-center -z-10" />
+
+  <!-- 2. Overlay Gelap (Sangat Disarankan agar teks mudah dibaca di HP/Desktop) -->
+  <div class="absolute inset-0 bg-slate-950/60 -z-10"></div>
+
+  <!-- 3. Konten Hero (Container Utuh yang Responsif) -->
+  <div class="relative mx-auto max-w-7xl w-full px-6 py-24 lg:px-10 lg:py-32 text-white">
+    <div class="max-w-3xl mx-auto text-center">
+      <!-- Tagline / Judul Utama -->
+      <h1 class="font-extrabold text-4xl sm:text-6xl md:text-7xl text-amber-300 leading-tight">Datang Kotor Pulang Bersih</h1>
+
+      <!-- Deskripsi -->
+      <p class="mt-2 text-base sm:text-lg md:text-md text-slate-200/90 leading-relaxed">Cukup 45 menit, pakaian Anda bersih – mesin modern, hasil maksimal.</p>
+
+      <!-- Tombol CTA -->
+      <div class="mt-8 flex flex-wrap justify-center gap-4">
+        <a
+          href="https://wa.me/6281234567890"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 rounded-full bg-emerald-600 px-6 py-3 font-semibold text-white shadow-lg shadow-emerald-600/30 transition hover:bg-emerald-700"
+        >
+          <Icon name="whatsapp" class="h-5 w-5" />
+          WhatsApp
+        </a>
+        <a href="#fasilitas" class="inline-flex items-center gap-2 rounded-full border border-cyan-400/70 px-6 py-3 font-semibold text-cyan-300 transition hover:bg-cyan-400/10 backdrop-blur-sm">
+          <Icon name="map-pin" class="h-5 w-5" />
+          Lihat Lokasi
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

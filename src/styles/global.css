@@ -1,0 +1,26 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Outfit:wght@100..900&display=swap");
+@import "tailwindcss";
+
+@theme {
+  /* FONTS */
+  --font-display: "DM Sans", sans-serif;
+  --font-body: "Outfit", sans-serif;
+
+  /* COLORS */
+  --color-navy-950: #081733;
+  --color-navy-900: #0b1c3f;
+  --color-navy-800: #122a52;
+  --color-navy-700: #1a3766;
+  --color-navy-border: #24427a;
+
+  --color-cyan-400: #3fd2ea;
+  --color-cyan-500: #22c1e0;
+  --color-cyan-600: #14a8c9;
+
+  --color-brand-green: #2fae59;
+  --color-brand-green-dark: #24924a;
+
+  --color-ink: #0b1c3f;
+  --color-muted: #64748b;
+  --color-surface: #f4f7fb;
+}

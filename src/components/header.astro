@@ -1,0 +1,89 @@
+---
+const navLinks = [
+  { label: "Beranda", href: "#beranda" },
+  { label: "Cara Pakai", href: "#cara-pakai" },
+  { label: "Harga", href: "#harga" },
+  { label: "Fasilitas", href: "#fasilitas" },
+  { label: "Review", href: "#review" },
+];
+---
+
+<header class="sticky top-0 z-50 border-b border-slate-200/70 bg-white/90 backdrop-blur">
+  <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-10">
+    <a href="#beranda" class="font-body text-2xl font-extrabold text-navy-950">
+      CoinWash<span class="text-cyan-500">+</span>
+    </a>
+
+    <!-- Nav-link -->
+    <nav class="hidden items-center font-display gap-8 text-md font-medium text-navy-950 md:flex">
+      {
+        navLinks.map((link) => (
+          <a href={link.href} class="transition-colors hover:text-cyan-600">
+            {link.label}
+          </a>
+        ))
+      }
+    </nav>
+
+    <!-- Mobile hamburger toggle, hidden from md breakpoint up -->
+    <button
+      id="menu-toggle"
+      type="button"
+      aria-label="Buka menu navigasi"
+      aria-expanded="false"
+      aria-controls="mobile-menu"
+      class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-slate-200 text-navy-950 transition hover:bg-slate-50 md:hidden"
+    >
+      <svg id="icon-open" viewBox="0 0 24 24" fill="none" class="h-5 w-5" xmlns="http://www.w3.org/2000/svg">
+        <path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path>
+      </svg>
+      <svg id="icon-close" viewBox="0 0 24 24" fill="none" class="hidden h-5 w-5" xmlns="http://www.w3.org/2000/svg">
+        <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Mobile nav panel -->
+  <nav id="mobile-menu" class="hidden flex-col gap-1 border-t border-slate-200/70 bg-white px-6 py-2 md:hidden">
+    {
+      navLinks.map((link) => (
+        <a href={link.href} class="rounded-lg px-3 py-2.5 text-sm font-medium text-navy-950 transition hover:bg-slate-50 hover:text-cyan-600" data-mobile-link>
+          {link.label}
+        </a>
+      ))
+    }
+  </nav>
+</header>
+
+<script>
+  const toggle = document.getElementById("menu-toggle");
+  const menu = document.getElementById("mobile-menu");
+  const iconOpen = document.getElementById("icon-open");
+  const iconClose = document.getElementById("icon-close");
+
+  const closeMenu = () => {
+    menu?.classList.add("hidden");
+    menu?.classList.remove("flex");
+    iconOpen?.classList.remove("hidden");
+    iconClose?.classList.add("hidden");
+    toggle?.setAttribute("aria-expanded", "false");
+  };
+
+  const openMenu = () => {
+    menu?.classList.remove("hidden");
+    menu?.classList.add("flex");
+    iconOpen?.classList.add("hidden");
+    iconClose?.classList.remove("hidden");
+    toggle?.setAttribute("aria-expanded", "true");
+  };
+
+  toggle?.addEventListener("click", () => {
+    const isOpen = toggle.getAttribute("aria-expanded") === "true";
+    isOpen ? closeMenu() : openMenu();
+  });
+
+  // Close the mobile menu after tapping a link
+  menu?.querySelectorAll("[data-mobile-link]").forEach((link) => {
+    link.addEventListener("click", closeMenu);
+  });
+</script>

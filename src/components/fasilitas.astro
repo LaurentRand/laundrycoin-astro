@@ -1,0 +1,31 @@
+---
+import Icon from "./icon.astro";
+
+const facilities = [
+  { icon: "washer", title: "Mesin Berkualitas", desc: "Mesin modern kapasitas besar dan terawat." },
+  { icon: "camera", title: "CCTV 24 Jam", desc: "Keamanan terjamin dengan CCTV di seluruh area." },
+  { icon: "room", title: "Ruangan Nyaman dan Bersih", desc: "Ruang bersih, wangi dan nyaman." },
+  { icon: "parking", title: "Area Parkir Gratis", desc: "Parkir luas dan aman untuk pelanggan." },
+  { icon: "wifi", title: "Internet Lancar", desc: "WiFi gratis dengan koneksi stabil." },
+] as const;
+---
+
+<section id="fasilitas" class="bg-surface py-20">
+  <div class="mx-auto max-w-7xl px-6 lg:px-10">
+    <h2 class="section-heading mx-auto block text-center">Fasilitas</h2>
+
+    <div class="mt-16 grid grid-cols-2 gap-5 sm:grid-cols-3 lg:grid-cols-5">
+      {
+        facilities.map((f) => (
+          <div class="flex flex-col items-center rounded-2xl bg-white p-6 text-center shadow-sm shadow-slate-200">
+            <div class="mb-4 flex h-16 w-16 items-center justify-center rounded-2xl bg-navy-950/5 text-navy-950">
+              <Icon name={f.icon} class="h-8 w-8" />
+            </div>
+            <h3 class="font-display text-sm font-bold leading-snug text-navy-950">{f.title}</h3>
+            <p class="mt-2 text-xs text-muted">{f.desc}</p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
